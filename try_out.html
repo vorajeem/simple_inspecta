@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Inspecta </title>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+        <script src="vue_min.js"></script>
+    </head>
+
+    <body>
+        <div id="heading">
+            {{welcomeMessage}}
+        </div>
+
+        <div id="spectrum" v-if="spectrum_display">
+            <span v-bind:title="comment">
+
+  
+            Spectrum
+        </span>
+        </div>
+
+        <div id="trend" v-if="trend_display">
+            <span v-bind:title="comment">
+                Trend
+            </span>
+        </div>
+
+        <div id="overview" v-if="overview_display">
+            <span v-bind:title="comment">
+                Overview
+            </span>
+        </div>
+
+        <div id ="mimic" v-if="mimic_display">
+            <span v-bind:title="comment">
+                Mimic
+            </span>
+        </div>
+
+        <div id="list">
+            <ul>
+                <li v-for="display in displays">
+                    {{display.text}}
+                </li>
+            </ul>
+        </div>
+        <script>
+
+            var heading = new Vue( {
+                el: '#heading',
+                data: {
+                    welcomeMessage:'Welcome to Inspecta!'
+                }
+            })
+
+            var spectrum_app = new Vue( {
+                el:'#spectrum',
+                data: {
+                    spectrum_display : true,
+                    comment:  'Click here to go to Spectrum view'
+                },
+               
+            })
+
+
+            var trend_app = new Vue({
+                el: '#trend',
+                data: {
+                    trend_display: true,
+                    comment: 'Click here to go to Trend page'
+                }
+            })
+
+            var overview_app = new Vue( {
+                el:"#overview",
+                data : {
+                    overview_display: true,
+                    comment: 'Click here to go to the Overview page'
+                }
+            })
+
+            var mimic_app = new Vue( {
+                el:'#mimic',
+                data: {
+                    mimic_display :true,
+                    comment: 'Click here to go to the Mimic page'
+                }
+            })
+
+
+
+            var list = new Vue( {
+                el:'#list',
+                data: {
+                    displays: [
+                        {text: 'Mimic'},
+                        {text: 'Trend'},
+                        {text: 'Overview'},
+                        {text: 'Spectrum'}
+                    ]
+                }
+            })
+        </script>
+    </body>
+</html>
+
