@@ -45,6 +45,11 @@
                 </li>
             </ul>
         </div>
+
+        <div id="name">
+            <p>{{message}}</p>
+            <input v-model="message">
+        </div>
         <script>
 
             var heading = new Vue( {
@@ -88,8 +93,6 @@
                 }
             })
 
-
-
             var list = new Vue( {
                 el:'#list',
                 data: {
@@ -99,6 +102,13 @@
                         {text: 'Overview'},
                         {text: 'Spectrum'}
                     ]
+                }
+            })
+
+            var name = new Vue({
+                el:'#name',
+                data: {
+                    message: 'Practice your typing here'
                 }
             })
         </script>
